@@ -33,7 +33,7 @@ Pizza.prototype.cost = function () {
 
 Pizza.prototype.total = function () {
     let finalPrice;
-    finalPrice = "your total price comes out to be " + (this.basePrice + this.extraFee) + " dollars.";
+    finalPrice = "Your total price comes out to be " + (this.basePrice + this.extraFee) + " dollars. ";
     return finalPrice;
 }
 
