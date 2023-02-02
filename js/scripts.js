@@ -33,8 +33,19 @@ Pizza.prototype.cost = function () {
 
 Pizza.prototype.total = function () {
     let finalPrice;
-    finalPrice = "your total price comes out to be " + (this.basePrice + this.extraFee) + " dollars";
+    finalPrice = "your total price comes out to be " + (this.basePrice + this.extraFee) + " dollars.";
     return finalPrice;
+}
+
+function Detail(name, address) {
+    this.name = name;
+    this.address = address;
+}
+
+Detail.prototype.orderDetail = function() {
+    let orderMessage;
+    orderMessage = this.name + ", Your order will be delivered to " + this.address;
+    return orderMessage;
 }
 
 //UI logtic
@@ -43,14 +54,19 @@ function orderSubmit(event) {
     let sizeSelect = document.getElementById("pizza-size").value;
     let meatTopping = document.getElementById("meatTopping").value;
     let veggieTopping = document.getElementById("veggieTopping").value;
-    //let personInfor = document.getElementById("personInfo").value;
+    let nameInfo = document.getElementById("name").value;
+    let addressInfo = document.getElementById("address").value;
 
-    let pizzaOrder = new Pizza(sizeSelect, meatTopping, veggieTopping)
+    let pizzaOrder = new Pizza(sizeSelect, meatTopping, veggieTopping);
     pizzaOrder.cost();
+    let orderMessage = new Detail(nameInfo, addressInfo);
+    orderMessage.orderDetail();
     let p = document.createElement("p");
     let body = document.querySelector("body");
-    p.setAttribute("class", "corners");
+    p.setAttribute("class", "corner");
     p.append(pizzaOrder.total());
+    p.append("\n")
+    p.append(orderMessage.orderDetail());
     body.append(p);
 }
 
