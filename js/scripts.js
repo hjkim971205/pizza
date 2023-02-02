@@ -44,7 +44,7 @@ function Detail(name, address) {
 
 Detail.prototype.orderDetail = function() {
     let orderMessage;
-    orderMessage = this.name + ", Your order will be delivered to " + this.address;
+    orderMessage = this.name + ", your order will be delivered to " + this.address;
     return orderMessage;
 }
 
@@ -65,7 +65,6 @@ function orderSubmit(event) {
     let body = document.querySelector("body");
     p.setAttribute("class", "corner");
     p.append(pizzaOrder.total());
-    p.append("\n")
     p.append(orderMessage.orderDetail());
     body.append(p);
 }
